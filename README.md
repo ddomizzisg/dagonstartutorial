@@ -10,7 +10,7 @@ resolves into task dependencies and staging operations.
 
 This repository contains a self-contained tutorial: 17 runnable lesson scripts
 (`tutorial/`), a matching Jupyter notebook (`DAGonStar_Tutorial.ipynb`), and the
-slide deck and timing plan they accompany (`slides/`).
+compiled slide deck (`DAGonStar_tutorial_slides.pdf`) they accompany.
 
 ## Installation
 
@@ -22,7 +22,14 @@ python3 -m venv .venv
 pip install git+https://github.com/DagOnStar/dagonstar.git
 ```
 
-Optional integrations are available as install extras:
+This covers every lesson except Lesson 16 (Docker-Backed Task), which needs the
+`docker` extra:
+
+```bash
+pip install "dagonstar[docker] @ git+https://github.com/DagOnStar/dagonstar.git"
+```
+
+Or install every optional integration at once:
 
 ```bash
 pip install "dagonstar[all] @ git+https://github.com/DagOnStar/dagonstar.git"

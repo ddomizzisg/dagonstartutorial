@@ -33,7 +33,15 @@ automatically as a byproduct of the graph DAGon* already built).
 Lesson 16 adds `TaskType.DOCKER`: the same `mean`-over-`prepare` pipeline as
 earlier lessons, but `mean` now runs inside a real `alpine:latest` container.
 Unlike every other lesson up to this point, this one needs a working Docker
-daemon on the machine running it -- it is not a mock.
+daemon on the machine running it -- it is not a mock. It also needs the
+`docker` extra (the base install does not pull in the `docker` Python SDK):
+
+~~~bash
+pip install "dagonstar[docker] @ git+https://github.com/DagOnStar/dagonstar.git"
+~~~
+
+Without it, `import dagon.docker_task` fails with `ModuleNotFoundError: No
+module named 'docker'`. `dagonstar[all]` covers this too.
 
 Lesson 17 adds the same pipeline again, but `mean` now runs on a remote
 machine over SSH: `DagonTask(TaskType.BATCH, ..., ip=, ssh_username=,
